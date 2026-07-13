@@ -1,4 +1,5 @@
 import { CartProvider, useCart } from "./context/CartContext";
+import ProductGallery from "./components/ProductGallery";
 
 function LiveAnnouncer() {
   const { announcement } = useCart();
@@ -36,9 +37,9 @@ function Header() {
   );
 }
 
-function ProductGallery() {
-  return <section className="p-4">Gallery placeholder</section>;
-}
+// function ProductGallery() {
+//   return <section className="p-4">Gallery placeholder</section>;
+// }
 
 function ProductInfo() {
   const { addToCart } = useCart();
