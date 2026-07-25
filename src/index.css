@@ -3,4 +3,12 @@
 
 @theme {
   --font-kumbh: "Kumbh Sans", sans-serif;
+
+  --color-brand-gray-950: hsl(220, 13%, 13%);
+  --color-brand-gray-500: hsl(219, 9%, 45%);
+  --color-brand-gray-300: hsl(221, 22%, 81%);
+  --color-brand-gray-100: hsl(219, 35%, 92%);
+  --color-brand-gray-050: hsl(223, 64%, 98%);
+  --color-brand-orange-500: hsl(26, 100%, 55%);
+  --color-brand-orange-300: hsl(26, 100%, 71%);
 }
