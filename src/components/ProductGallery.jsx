@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const images = [
   {
@@ -29,20 +29,35 @@ function ProductGallery() {
 
   return (
     <section aria-label="Product images" className="p-4">
-      <img src={activeImage.src} alt={activeImage.alt} className="w-full rounded-2xl" />
+      <img
+        src={activeImage.src}
+        alt={activeImage.alt}
+        className="w-full rounded-2xl"
+      />
 
-      <div role="group" aria-label="Choose product image" className="mt-4 flex gap-8">
+      <div
+        role="group"
+        aria-label="Choose product image"
+        className="mt-4 flex gap-8">
         {images.map((image, index) => {
           const isActive = index === activeIndex;
           return (
-            <button key={image.id} onClick={() => setActiveIndex(index)} aria-current={isActive} className={`rounded-lg overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 ${isActive ? 'border-orange-500' : 'border-transparent'}`}>
-              <img src={image.src} alt="" className="size-22 object-cover" />
+            <button
+              key={image.id}
+              onClick={() => setActiveIndex(index)}
+              aria-current={isActive}
+              className={`rounded-lg overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 ${isActive ? "border-orange-500" : "border-transparent"}`}>
+              <img
+                src={image.src}
+                alt=""
+                className="size-22 object-cover"
+              />
             </button>
           );
         })}
       </div>
     </section>
-  )
+  );
 }
 
 export default ProductGallery;
