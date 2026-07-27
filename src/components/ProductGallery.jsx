@@ -1,5 +1,5 @@
 import { useState } from "react";
-import galleryImages from "../data/gallery-data";
+import { galleryImages } from "../data/gallery-data";
 import GalleryThumbnail from "./GalleryThumbnail";
 
 function ProductGallery() {
@@ -11,7 +11,7 @@ function ProductGallery() {
       <img
         src={activeImage.src}
         alt={activeImage.alt}
-        className="w-full rounded-2xl"
+        className="max-w-112.5 w-full rounded-2xl"
       />
 
       <div
@@ -21,7 +21,9 @@ function ProductGallery() {
         {galleryImages.map((image, index) => (
           <GalleryThumbnail
             key={image.id}
-            image={image}
+            image={image.thumbnail}
+            alt={image.alt}
+            label={`Product thumbnail image ${index + 1}`}
             isActive={index === activeIndex}
             onSelect={() => setActiveIndex(index)}
           />

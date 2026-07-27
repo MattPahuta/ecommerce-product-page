@@ -14,14 +14,16 @@ function App() {
   return (
     <CartProvider>
       <LiveAnnouncer />
-      <Header />
-      <main className="">
-        {/* <h1 className="text-[1.75rem] sm:text-[2.75rem]">
+      <div className="max-w-277.5 mx-auto">
+        <Header />
+        <main className="">
+          {/* <h1 className="text-[1.75rem] sm:text-[2.75rem]">
           Fall Limited Edition Sneakers
         </h1> */}
-        <ProductGallery />
-        <ProductInfo />
-      </main>
+          <ProductGallery />
+          <ProductInfo />
+        </main>
+      </div>
     </CartProvider>
   );
 }
