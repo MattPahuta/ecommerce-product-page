@@ -27,12 +27,12 @@ function ProductGallery() {
   }
 
   return (
-    <section aria-label="Product images" className="p-4">
+    <section aria-label="Product images" className="">
       <div className="relative">
         <img
           src={activeImage.src}
           alt={activeImage.alt}
-          className="w-full lg:max-w-112.5 max-h-75 object-cover object-center rounded-2xl"
+          className="w-full lg:max-w-112.5 max-h-75 object-cover object-center sm:rounded-2xl"
         />
         {/* Gallery arrows - mobile/tablet only */}
         {/* ToDo: make these individual left/right button components? */}
