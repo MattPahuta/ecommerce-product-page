@@ -3,7 +3,6 @@ import { galleryImages } from "../data/gallery-data";
 import GalleryArrowButton from "./GalleryArrowButton";
 import GalleryThumbnail from "./GalleryThumbnail";
 
-
 function ProductGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = galleryImages[activeIndex];

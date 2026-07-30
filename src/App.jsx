@@ -14,7 +14,7 @@ function App() {
   return (
     <CartProvider>
       <LiveAnnouncer />
-      <div className="max-w-277.5 mx-auto">
+      <div className="mx-auto sm:px-20">
         <Header />
         <main className="">
           {/* <h1 className="text-[1.75rem] sm:text-[2.75rem]">
