@@ -43,7 +43,7 @@ Users should be able to:
 
 Instead of the collection of provided icon assets, I decided to utilize an icon library (React Feather - one of favorites) to streamline some of the conditional rendering and update the style of the product page in an incremental fashion. I feel going with the icon library adds to the overall accessibility of the site as well, eliminating some of the awkwardness of rendering the raw SVG files...
 
-The last time I completed a project that featured a modal, I reached for a couple of outstanding UI libraries (FocusLock and RemoveScroll) to simplify the code and abstract away much of the complexity of dealing with focus and scroll behavior of the modal, as well as steamlining the accessibility of the modal. This time, I decided to deal with this functionality from scratch (with a lot of help and guidance from Claude). 
+The last time I completed a project that featured a modal, I reached for a couple of outstanding UI libraries (FocusLock and RemoveScroll) to simplify the code and abstract away much of the complexity of dealing with focus and scroll behavior of the modal, as well as steamlining the accessibility of the modal. This time, I decided to deal with this functionality from scratch (with a lot of help and guidance from Claude). And no, I do not think I'll go through that again if it can be helped. It was enlightening process, but I 
 
 ### Component Design
 
