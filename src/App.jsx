@@ -1,4 +1,5 @@
 import { CartProvider, useCart } from "./context/CartContext";
+import Header from "./components/Header";
 import ProductGallery from "./components/ProductGallery";
 
 function LiveAnnouncer() {
@@ -14,7 +15,7 @@ function App() {
   return (
     <CartProvider>
       <LiveAnnouncer />
-      <div className="mx-auto sm:px-20">
+      <div className="mx-auto max-w-277.5">
         <Header />
         <main className="">
           {/* <h1 className="text-[1.75rem] sm:text-[2.75rem]">
@@ -30,14 +31,14 @@ function App() {
 
 // ** Temp stub components
 
-function Header() {
-  const { cartCount } = useCart();
-  return (
-    <header className="p-4 border-b">
-      <p>Header placeholder -- cart count: {cartCount}</p>
-    </header>
-  );
-}
+// function Header() {
+//   const { cartCount } = useCart();
+//   return (
+//     <header className="p-4 border-b">
+//       <p>Header placeholder -- cart count: {cartCount}</p>
+//     </header>
+//   );
+// }
 
 // function ProductGallery() {
 //   return <section className="p-4">Gallery placeholder</section>;
