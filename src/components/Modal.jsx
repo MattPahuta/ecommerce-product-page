@@ -31,7 +31,7 @@ function Modal({ isOpen, onClose, labelledBy, children }) {
             aria-modal="true"
             aria-labelledby={labelledBy}
             onClick={(event) => event.stopPropagation()}
-            className="rounded-lg max-w-137.5 w-full">
+            className="max-w-137.5 w-full flex flex-col">
             {children}
           </div>
         </div>

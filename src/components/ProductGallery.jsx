@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { galleryImages } from "../data/gallery-data";
 import GalleryArrowButton from "./GalleryArrowButton";
 import GalleryThumbnail from "./GalleryThumbnail";
@@ -11,6 +11,10 @@ function ProductGallery() {
   // check if this works as REM (64rem)
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const activeImage = galleryImages[activeIndex];
+
+  // useEffect(() => {
+  //   if (!isDesktop) setIsLightboxOpen(false);
+  // }, [isDesktop]);
 
   // show previous image in gallery, wrapping to the last image if currently at the firt
   function showPreviousImage() {

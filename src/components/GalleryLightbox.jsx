@@ -24,26 +24,16 @@ function GalleryLightbox({
       </h2>
       <button
         onClick={onClose}
-        className="mb-6 size-10 text-white inline-flex items-center justify-center hover:text-brand-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
+        className="mb-6 ml-auto text-white inline-flex items-center justify-center hover:text-brand-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
         <Close aria-hidden="true" className="size-7" />
         <span className="sr-only">Dismiss modal</span>
-        {/* <svg
-          width="14"
-          height="15"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
-            fill="#69707D"
-            fill-rule="evenodd"
-          />
-        </svg> */}
       </button>
       {/* active image w/controls */}
       <div className="relative">
         <img
           src={activeImage.src}
           alt={activeImage.alt}
-          className="w-full rounded-lg"
+          className="w-full rounded-2xl"
         />
         <GalleryArrowButton
           direction="previous"

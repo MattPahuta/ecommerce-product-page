@@ -1,6 +1,6 @@
 import { CartProvider, useCart } from "./context/CartContext";
 import Header from "./components/Header";
-import ProductGallery from "./components/ProductGallery";
+import ProductPage from "./components/ProductPage";
 
 function LiveAnnouncer() {
   const { announcement } = useCart();
@@ -17,13 +17,7 @@ function App() {
       <LiveAnnouncer />
       <div className="mx-auto max-w-277.5">
         <Header />
-        <main className="">
-          {/* <h1 className="text-[1.75rem] sm:text-[2.75rem]">
-          Fall Limited Edition Sneakers
-        </h1> */}
-          <ProductGallery />
-          <ProductInfo />
-        </main>
+        <ProductPage />
       </div>
     </CartProvider>
   );
@@ -44,17 +38,17 @@ function App() {
 //   return <section className="p-4">Gallery placeholder</section>;
 // }
 
-function ProductInfo() {
-  const { addToCart } = useCart();
-  return (
-    <section className="p-4">
-      <button
-        onClick={() => addToCart({ id: 1, name: "Sneaker" }, 2)}
-        className="border px-3 py-1 rounded">
-        Test: add 2 to cart
-      </button>
-    </section>
-  );
-}
+// function ProductInfo() {
+//   const { addToCart } = useCart();
+//   return (
+//     <section className="p-4">
+//       <button
+//         onClick={() => addToCart({ id: 1, name: "Sneaker" }, 2)}
+//         className="border px-3 py-1 rounded">
+//         Test: add 2 to cart
+//       </button>
+//     </section>
+//   );
+// }
 
 export default App;
