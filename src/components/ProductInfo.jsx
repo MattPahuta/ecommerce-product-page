@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import QuantitySelector from "./QuantitySelector";
 import { FiShoppingCart } from "react-icons/fi";
@@ -18,12 +18,8 @@ function ProductInfo() {
   const [quantity, setQuantity] = useState(0);
   const [showError, setShowError] = useState(false);
   const { addToCart } = useCart();
-
-  useEffect(() => {
-    if (quantity > 0) {
-      setShowError(false);
-    }
-  }, [quantity]);
+  // Reset error message when quantity is increased above 0
+  quantity > 0 && showError && setShowError(false);
 
   function handleAddToCart() {
     if (quantity === 0) {
@@ -35,16 +31,16 @@ function ProductInfo() {
   }
 
   return (
-    <section className="p-6">
-      <p className="mb-4 text-xs font-bold uppercase text-brand-gray-500 tracking-widest">
+    <section className="p-6 sm:p-0">
+      <p className="mb-4 text-xs sm:text-[0.813rem] font-bold uppercase text-brand-gray-500 tracking-widest">
         Sneaker Company
       </p>
-      <h1 className="mb-4 text-3xl font-bold">{product.name}</h1>
+      <h1 className="mb-4 text-3xl sm:text-[2.75rem] font-bold">{product.name}</h1>
       <p className="text-brand-gray-500 leading-relaxed">
         {product.description}
       </p>
 
-      <div className="my-8 flex md:flex-col items-center justify-between">
+      <div className="my-8 flex sm:flex-col items-center sm:items-start justify-between">
         <div className="flex gap-4">
           <span className="text-3xl font-bold">
             ${product.discountPrice.toFixed(2)}
@@ -58,7 +54,7 @@ function ProductInfo() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
         <QuantitySelector
           quantity={quantity}
           onDecrement={() => setQuantity((prev) => prev - 1)}

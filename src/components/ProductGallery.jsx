@@ -35,7 +35,7 @@ function ProductGallery() {
   }
 
   return (
-    <section aria-label="Product images" className="">
+    <section aria-label="Product images" className="sm:my-12">
       <div className="relative">
         {isDesktop ? (
           <button
