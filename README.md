@@ -57,6 +57,8 @@ Instead of the collection of provided icon assets, I decided to utilize an icon 
 
 There are some gaps in the design comp in regard to interactive (focus, active) elements. In particular, there are not defined styles for keyboard focused elements. The daker of the brand orange colors felt like the most natural of the accent colors to use here while keeping consistency with the design comp, but that color against the primary white background has a contrast ratio of just a tic over 2.5:1, failing both WCAG AA and AAA standards. I experimented with some similar orange shades to increase the contrast ratio to a minimum of 3:1, but the focus state of a selected thumb with the similar accent orange-500 looked awkward. In the end, I chose the darkest of the brand grays, erring on the side of clear visual accessiblity.
 
+This FEM challenge is largely focused on layout and achieving the lightbox interactivity, so the design comp has limited insight into much of the interactive styles for buttons and nothing to say about error states or specific shopping cart logic, so I decided to fall back on achieving the highest contrast ratio standards with the brand color combinations and detailed error text. 
+
 ## Author
 
 - Website - [Matt Pahuta](https://www.mattpahuta.dev)
