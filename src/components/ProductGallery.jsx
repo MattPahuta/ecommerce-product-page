@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { galleryImages } from "../data/gallery-data";
 import GalleryArrowButton from "./GalleryArrowButton";
 import GalleryThumbnail from "./GalleryThumbnail";
@@ -35,16 +35,16 @@ function ProductGallery() {
   }
 
   return (
-    <section aria-label="Product images" className="sm:my-12">
-      <div className="relative">
+    <section aria-label="Product images" className="lg:flex lg:flex-col lg:items-center">
+      <div className="relative lg:aspect-square lg:max-w-112.5">
         {isDesktop ? (
           <button
             onClick={() => setIsLightboxOpen(true)}
-            className="cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-brand-gray-950 outline-offset-2">
+            className="block w-full h-full cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-brand-gray-950 outline-offset-2">
             <img
               src={activeImage.src}
               alt={activeImage.alt}
-              className="w-full lg:max-w-112.5 max-h-75 object-cover object-center sm:rounded-2xl"
+              className="w-full h-full object-cover object-center sm:rounded-2xl"
             />
           </button>
         ) : (
