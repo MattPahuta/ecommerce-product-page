@@ -1,0 +1,56 @@
+import { useEffect, useRef } from "react";
+import { useCart } from "../context/CartContext";
+import CartItem from "./CartItem";
+
+function CartPanel({ onClose, panelRef }) {
+  const { cartItems, removeFromCart } = useCart();
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, []);
+
+  return (
+    <div
+      ref={panelRef}
+      id="cart-panel"
+      role="dialg"
+      className="fixed w-[calc(100%-28px)] sm:max-w-100 left-1/2 -translate-x-1/2 top-24 sm:absolute sm:left-auto sm:translate-x-0 sm:-right-16 sm:top-full sm:mt-4 z-40 bg-white rounded-lg shadow-xl">
+      <header className="py-6 border-b border-brand-gray-100">
+        <div className="px-4">
+          <h2 ref={headingRef} className="font-bold">
+            Cart
+          </h2>
+        </div>
+      </header>
+
+      {cartItems.length === 0 && (
+        <p className="py-20 text-brand-gray-500 font-bold text-center">
+          Your cart is empty.
+        </p>
+      )}
+
+      {cartItems.length >= 1 && (
+        <div className="py-6 px-4 space-y-6">
+          <ul className="divide-y">
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                onRemove={() => removeFromCart(item.id)}
+              />
+            ))}
+          </ul>
+
+          <button
+            onClick={onClose}
+            className="w-full py-4 inline-flex items-center justify-center rounded-xl bg-brand-orange-500 text-brand-gray-950 font-bold">
+            Checkout
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default CartPanel;

@@ -49,6 +49,8 @@ Instead of the collection of provided icon assets, I decided to utilize an icon 
 
 ### Component Design
 
+This layout challenges of this project were much trickier than I anticipated. I think I spent a good deal more time with CSS trial and error, struggling to get the right combinations of postion relative, absolute, etc. correct than I did with the React and pure JavaScript logic.
+
 ### State Management
 
 ### Utility Functions

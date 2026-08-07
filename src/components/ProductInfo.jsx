@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import QuantitySelector from "./QuantitySelector";
 import { FiShoppingCart } from "react-icons/fi";
+import { galleryImages } from "../data/gallery-data";
 
 // ** ToDo: consolidate product data, including images, in data file
 const product = {
-  id: 1,
+  id: 101,
   name: "Fall Limited Edition Sneakers",
   description:
     "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+  thumbnail: galleryImages[0].thumbnail,
   discountPrice: 125,
   discountPercentage: 50,
   fullPrice: 250,

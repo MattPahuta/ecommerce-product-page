@@ -23,32 +23,4 @@ function App() {
   );
 }
 
-// ** Temp stub components
-
-// function Header() {
-//   const { cartCount } = useCart();
-//   return (
-//     <header className="p-4 border-b">
-//       <p>Header placeholder -- cart count: {cartCount}</p>
-//     </header>
-//   );
-// }
-
-// function ProductGallery() {
-//   return <section className="p-4">Gallery placeholder</section>;
-// }
-
-// function ProductInfo() {
-//   const { addToCart } = useCart();
-//   return (
-//     <section className="p-4">
-//       <button
-//         onClick={() => addToCart({ id: 1, name: "Sneaker" }, 2)}
-//         className="border px-3 py-1 rounded">
-//         Test: add 2 to cart
-//       </button>
-//     </section>
-//   );
-// }
-
 export default App;

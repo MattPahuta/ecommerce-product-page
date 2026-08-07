@@ -5,6 +5,8 @@ import logo from "../assets/images/logo.svg";
 import avatar from "../assets/images/image-avatar.png";
 import { FiShoppingCart as CartIcon } from "react-icons/fi";
 
+import CartPanel from "./CartPanel";
+
 function Header() {
   const { cartCount } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -26,7 +28,7 @@ function Header() {
 
   return (
     <header
-      className="p-6 sm:mb-12 lg:mb-24"
+      className="relative p-6 sm:mb-12 lg:mb-24"
       onKeyDown={handleKeyDown}>
       <div className="flex items-center justify-between">
         <img src={logo} alt="Sneakers logo" className="mr-4" />
@@ -34,7 +36,7 @@ function Header() {
         <div className="flex items-center gap-6">
           <button
             ref={cartButtonRef}
-            onClick={() => console.log("clicked")}
+            onClick={() => setIsCartOpen((open) => !open)}
             aria-expanded={isCartOpen}
             aria-haspopup="dialog"
             aria-controls="cart-panel"
@@ -56,6 +58,16 @@ function Header() {
           />
         </div>
       </div>
+
+      {isCartOpen && (
+        <CartPanel
+          panelRef={cartPanelRef}
+          onClose={() => {
+            setIsCartOpen(false);
+            cartButtonRef.current?.focus();
+          }}
+        />
+      )}
     </header>
   );
 }
