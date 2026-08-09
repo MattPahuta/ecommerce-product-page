@@ -34,11 +34,11 @@ function ProductInfo() {
 
   return (
     <section className="p-6 sm:p-0 flex">
-      <div className="flex flex-col justify-center">
-        <p className="mb-4 text-xs sm:text-[0.813rem] font-bold uppercase text-brand-gray-500 tracking-widest">
+      <div className="flex flex-col justify-center lg:max-w-112.5">
+        <p className="mb-4 lg:mb-6 text-xs sm:text-[0.813rem] font-bold uppercase text-brand-gray-500 tracking-widest">
           Sneaker Company
         </p>
-        <h1 className="mb-4 text-3xl sm:text-[2.75rem] font-bold">
+        <h1 className="mb-4 lg:mb-8 text-3xl sm:text-[2.75rem] font-bold">
           {product.name}
         </h1>
         <p className="text-brand-gray-500 leading-relaxed">

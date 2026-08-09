@@ -24,7 +24,7 @@ function GalleryLightbox({
       </h2>
       <button
         onClick={onClose}
-        className="mb-6 ml-auto text-white inline-flex items-center justify-center hover:text-brand-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
+        className="mb-6 size-8 rounded-md ml-auto text-white inline-flex items-center justify-center hover:text-brand-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
         <Close aria-hidden="true" className="size-7" />
         <span className="sr-only">Dismiss modal</span>
       </button>

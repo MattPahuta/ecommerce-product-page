@@ -14,7 +14,7 @@ function CartPanel({ onClose, panelRef }) {
     <div
       ref={panelRef}
       id="cart-panel"
-      role="dialg"
+      role="dialog"
       className="fixed w-[calc(100%-28px)] sm:max-w-100 left-1/2 -translate-x-1/2 top-24 sm:absolute sm:left-auto sm:translate-x-0 sm:-right-16 sm:top-full sm:mt-4 z-40 bg-white rounded-lg shadow-xl">
       <header className="py-6 border-b border-brand-gray-100">
         <div className="px-4">
@@ -44,7 +44,7 @@ function CartPanel({ onClose, panelRef }) {
 
           <button
             onClick={onClose}
-            className="w-full py-4 inline-flex items-center justify-center rounded-xl bg-brand-orange-500 text-brand-gray-950 font-bold">
+            className="w-full py-4 inline-flex items-center justify-center rounded-xl bg-brand-orange-500 text-brand-gray-950 font-bold cursor-pointer hover:bg-brand-orange-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gray-950 transition">
             Checkout
           </button>
         </div>
