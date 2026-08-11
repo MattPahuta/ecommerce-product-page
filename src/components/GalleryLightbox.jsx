@@ -54,7 +54,7 @@ function GalleryLightbox({
         {images.map((image, index) => (
           <GalleryThumbnail
             key={image.id}
-            image={image.thumbnail}
+            image={image.thumbnailSrc}
             alt={`Product thumbnail ${index + 1}`}
             label={`Product thumbnail image ${index + 1}`}
             isActive={index === activeIndex}

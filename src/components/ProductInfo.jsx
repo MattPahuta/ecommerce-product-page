@@ -2,19 +2,11 @@ import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import QuantitySelector from "./QuantitySelector";
 import { FiShoppingCart } from "react-icons/fi";
-import { galleryImages } from "../data/gallery-data";
-
-// ** ToDo: consolidate product data, including images, in data file
-const product = {
-  id: 101,
-  name: "Fall Limited Edition Sneakers",
-  description:
-    "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-  thumbnail: galleryImages[0].thumbnail,
-  discountPrice: 125,
-  discountPercentage: 50,
-  fullPrice: 250,
-};
+import {
+  product,
+  getCurrentPrice,
+  getDiscountPercent,
+} from "../data/product-data";
 
 function ProductInfo() {
   const [quantity, setQuantity] = useState(0);
@@ -23,12 +15,23 @@ function ProductInfo() {
   // Reset error message when quantity is increased above 0
   quantity > 0 && showError && setShowError(false);
 
+  const currentPrice = getCurrentPrice(product);
+  const discountPercent = getDiscountPercent(product);
+
   function handleAddToCart() {
     if (quantity === 0) {
       setShowError(true);
       return;
     }
-    addToCart(product, quantity);
+    addToCart(
+      {
+        id: product.id,
+        name: product.name,
+        thumbnail: product.images[0].thumbnailSrc,
+        price: currentPrice,
+      },
+      quantity,
+    );
     setQuantity(0);
   }
 
@@ -48,10 +51,10 @@ function ProductInfo() {
         <div className="my-8 flex sm:flex-col items-center sm:items-start justify-between">
           <div className="flex gap-4">
             <span className="text-3xl font-bold">
-              ${product.discountPrice.toFixed(2)}
+              ${currentPrice.toFixed(2)}
             </span>
             <span className="py-0.5 px-2.5 self-start bg-brand-gray-950 text-white font-bold rounded-md">
-              {product.discountPercentage}%
+              {discountPercent}%
             </span>
           </div>
           <p className="font-bold text-brand-gray-500 line-through">

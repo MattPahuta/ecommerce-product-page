@@ -11,9 +11,9 @@ function CartItem({ item, onRemove }) {
       <div className="w-full">
         <p className="text-brand-gray-500">{item.name}</p>
         <p className="text-brand-gray-500">
-          ${item.discountPrice.toFixed(2)} x {item.quantity}
+          ${item.price.toFixed(2)} x {item.quantity}
           <span className="ml-2 font-bold text-brand-gray-950">
-            ${(item.discountPrice * item.quantity).toFixed(2)}
+            ${(item.price * item.quantity).toFixed(2)}
           </span>
         </p>
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { galleryImages } from "../data/gallery-data";
+import { product } from "../data/product-data";
 import GalleryArrowButton from "./GalleryArrowButton";
 import GalleryThumbnail from "./GalleryThumbnail";
 import GalleryLightbox from "./GalleryLightbox";
@@ -9,7 +9,8 @@ function ProductGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 64rem)");
-  const activeImage = galleryImages[activeIndex];
+  const productImages = product.images;
+  const activeImage = product.images[activeIndex];
 
   // useEffect(() => {
   //   if (!isDesktop) setIsLightboxOpen(false);
@@ -19,7 +20,7 @@ function ProductGallery() {
   function showPreviousImage() {
     setActiveIndex((currentIndex) =>
       currentIndex === 0
-        ? galleryImages.length - 1
+        ? productImages.length - 1
         : currentIndex - 1,
     );
   }
@@ -27,7 +28,7 @@ function ProductGallery() {
   // show next image in gallery, wrapping to the first image if currently at the last
   function showNextImage() {
     setActiveIndex((currentIndex) =>
-      currentIndex === galleryImages.length - 1
+      currentIndex === productImages.length - 1
         ? 0
         : currentIndex + 1,
     );
@@ -72,10 +73,10 @@ function ProductGallery() {
         role="group"
         aria-label="Select product image"
         className="hidden mt-4 lg:flex gap-8">
-        {galleryImages.map((image, index) => (
+        {productImages.map((image, index) => (
           <GalleryThumbnail
             key={image.id}
-            image={image.thumbnail}
+            image={image.thumbnailSrc}
             alt={`Product thumbnail ${index + 1}`}
             label={`Product thumbnail image ${index + 1}`}
             isActive={index === activeIndex}
@@ -88,7 +89,7 @@ function ProductGallery() {
         <GalleryLightbox
           isOpen={isLightboxOpen}
           onClose={() => setIsLightboxOpen(false)}
-          images={galleryImages}
+          images={productImages}
           activeIndex={activeIndex}
           onSelect={setActiveIndex}
           onPrevious={showPreviousImage}
