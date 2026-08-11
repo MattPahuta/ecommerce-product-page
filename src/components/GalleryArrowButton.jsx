@@ -17,7 +17,7 @@ function GalleryArrowButton({ direction, size = "standard", onClick }) {
     <button
       onClick={onClick}
       aria-label={isNext ? "Next image" : "Previous image"}
-      className={`group absolute top-1/2 -translate-y-1/2 ${isLargeButton ? "size-14" : "size-10"} ${isLargeButton ? offsetClassLarge : offsetClassStandard} rounded-full text-brand-gray-950 text-2xl bg-white inline-flex items-center justify-center text-center hover:text-brand-gray-950/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-brand-orange-500 cursor-pointer transition`}>
+      className={`group absolute top-1/2 -translate-y-1/2 ${isLargeButton ? "size-14" : "size-10"} ${isLargeButton ? offsetClassLarge : offsetClassStandard} rounded-full text-brand-gray-950 text-2xl bg-white inline-flex items-center justify-center text-center hover:text-brand-orange-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:text-brand-orange-500 cursor-pointer transition`}>
       {isNext ? (
         <FiChevronRight aria-hidden="true" focusable="false" />
       ) : (

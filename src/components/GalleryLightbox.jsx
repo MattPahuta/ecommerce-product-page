@@ -24,7 +24,7 @@ function GalleryLightbox({
       </h2>
       <button
         onClick={onClose}
-        className="mb-6 size-8 rounded-md ml-auto text-white inline-flex items-center justify-center hover:text-brand-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer transition-colors">
+        className="mb-6 size-8 rounded-md ml-auto text-white inline-flex items-center justify-center hover:text-brand-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer transition-colors">
         <Close aria-hidden="true" className="size-7" />
         <span className="sr-only">Dismiss modal</span>
       </button>
@@ -55,6 +55,8 @@ function GalleryLightbox({
           <GalleryThumbnail
             key={image.id}
             image={image.thumbnail}
+            alt={`Product thumbnail ${index + 1}`}
+            label={`Product thumbnail image ${index + 1}`}
             isActive={index === activeIndex}
             onSelect={() => onSelect(index)}
           />

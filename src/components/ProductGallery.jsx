@@ -8,8 +8,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 function ProductGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  // check if this works as REM (64rem)
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 64rem)");
   const activeImage = galleryImages[activeIndex];
 
   // useEffect(() => {
@@ -35,7 +34,9 @@ function ProductGallery() {
   }
 
   return (
-    <section aria-label="Product images" className="lg:flex lg:flex-col lg:items-center">
+    <section
+      aria-label="Product images"
+      className="lg:flex lg:flex-col lg:items-center">
       <div className="relative lg:aspect-square lg:max-w-112.5">
         {isDesktop ? (
           <button
@@ -55,7 +56,6 @@ function ProductGallery() {
           />
         )}
         {/* Gallery arrows - mobile/tablet only */}
-        {/* ToDo: make these individual left/right button components? */}
         <div className="flex lg:hidden">
           <GalleryArrowButton
             direction="previous"
@@ -76,7 +76,7 @@ function ProductGallery() {
           <GalleryThumbnail
             key={image.id}
             image={image.thumbnail}
-            alt={image.alt}
+            alt={`Product thumbnail ${index + 1}`}
             label={`Product thumbnail image ${index + 1}`}
             isActive={index === activeIndex}
             onSelect={() => setActiveIndex(index)}
