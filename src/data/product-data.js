@@ -15,7 +15,7 @@ export const product = {
   description:
     "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
   fullPrice: 250,
-  promoRate: 0.5,
+  promoRate: 0.50,
   images: [
     { id: 1, src: mainImage1, thumbnailSrc: thumbnail1, alt: "White and tan low-profile sneakers, side view of one shoe with the other tipped forward to highlight the sole tread" },
     { id: 2, src: mainImage2, thumbnailSrc: thumbnail2, alt: "White and tan low-profile sneakers, one shoe resting on a small tower of white stones with the other tipped forward highlting the shoe top" },

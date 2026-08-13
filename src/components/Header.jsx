@@ -28,7 +28,7 @@ function Header() {
 
   return (
     <header
-      className="relative p-6 sm:mb-12 lg:mb-24"
+      className="relative py-6 px-6 sm:mb-12 lg:mb-24 sm:px-0 sm:border-b border-brand-gray-300"
       onKeyDown={handleKeyDown}>
       <div className="flex items-center justify-between">
         <img src={logo} alt="Sneakers logo" className="mr-4" />
