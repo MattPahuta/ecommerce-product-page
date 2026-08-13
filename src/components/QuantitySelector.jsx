@@ -1,15 +1,31 @@
-import { FiMinus, FiPlus } from "react-icons/fi";
-
 function QuantitySelector({ quantity, onDecrement, onIncrement }) {
   return (
-    <div role="group" aria-label="Select quantity" className="p-1 flex items-center justify-between bg-brand-gray-050 rounded-xl">
+    <div
+      role="group"
+      aria-label="Select quantity"
+      className="p-1 flex items-center justify-between bg-brand-gray-050 rounded-xl">
       <button
         onClick={onDecrement}
         disabled={quantity === 0}
         id="decrement"
-        className="p-4 rounded-lg text-orange-900 cursor-pointer hover:text-brand-orange-500 focus-visible:outline-2 focus-visible:outline-brand-orange-500 transition-colors">
+        className="group p-4 size-11 rounded-lg cursor-pointer focus-visible:outline-2 focus-visible:outline-brand-orange-500 transition-colors">
         <span className="sr-only">Decrease quanity</span>
-        <FiMinus aria-hidden="true" />
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          className="fill-brand-orange-500 group-hover:fill-brand-orange-500/70 transition-colors"
+          width="12"
+          height="4"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <path
+              d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+              id="a"
+            />
+          </defs>
+          <use fillRule="nonzero" xlinkHref="#a" />
+        </svg>
       </button>
       <output htmlFor="decrement increment" className="font-bold">
         {quantity}
@@ -18,9 +34,24 @@ function QuantitySelector({ quantity, onDecrement, onIncrement }) {
         onClick={onIncrement}
         disabled={quantity === 99}
         id="increment"
-        className="p-4 rounded-xl text-orange-900 cursor-pointer hover:text-brand-orange-500 focus-visible:outline-2 focus-visible:outline-brand-orange-500 transition-colors">
+        className="group p-4 size-11 rounded-lg cursor-pointer focus-visible:outline-2 focus-visible:outline-brand-orange-500 transition-colors">
         <span className="sr-only">Increase quantity</span>
-        <FiPlus aria-hidden="true" />
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          className="fill-brand-orange-500 group-hover:fill-brand-orange-500/70 transition-colors"
+          width="12"
+          height="12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <path
+              d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+              id="b"
+            />
+          </defs>
+          <use fillRule="nonzero" xlinkHref="#b" />
+        </svg>
       </button>
     </div>
   );

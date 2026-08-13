@@ -3,7 +3,7 @@ import ProductInfo from "./ProductInfo";
 
 function ProductPage() {
   return (
-    <main className="grid sm:gap-12 lg:grid-cols-[min-content_1fr] lg:justify-between lg:justify-items-center">
+    <main className="flex flex-col lg:flex-row lg:justify-around sm:gap-12">
       <ProductGallery />
       <ProductInfo />
     </main>
