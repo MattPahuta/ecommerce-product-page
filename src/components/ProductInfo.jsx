@@ -70,7 +70,7 @@ function ProductInfo() {
           />
           <button
             onClick={handleAddToCart}
-            className="p-4 font-bold bg-brand-orange-500 inline-flex gap-4 items-center justify-center rounded-xl shadow-md cursor-pointer hover:bg-brand-orange-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gray-950 active:bg-brand-orange-500/90 transition">
+            className="p-4 font-bold bg-brand-orange-500 inline-flex gap-4 items-center justify-center rounded-xl shadow-md cursor-pointer hover:bg-brand-orange-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange-500 active:bg-brand-orange-500/90 transition">
             <FiShoppingCart aria-hidden="true" />
             Add to cart
           </button>

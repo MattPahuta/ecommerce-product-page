@@ -9,7 +9,7 @@ function Modal({
   labelledBy,
   ariaLabel,
   overlayClassName = "items-center justify-center",
-  planelClassName = "max-w-137.5 w-full flex flex-col",
+  panelClassName = "max-w-137.5 w-full flex flex-col",
   children,
 }) {
   useEffect(() => {
@@ -41,7 +41,7 @@ function Modal({
             aria-labelledby={labelledBy}
             aria-label={ariaLabel}
             onClick={(event) => event.stopPropagation()}
-            className={planelClassName}>
+            className={panelClassName}>
             {children}
           </div>
         </div>
