@@ -4,19 +4,22 @@ import { FiX as Close } from "react-icons/fi";
 
 function MobileNav({ isOpen, onClose }) {
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      ariaLabel="Menu"
-      overlayClassName="justify-start"
-      planelClassName="h-full w-full max-w-[300px] p-6 flex flex-col bg-white">
+    // <Modal
+    //   isOpen={isOpen}
+    //   onClose={onClose}
+    //   ariaLabel="Menu"
+    //   overlayClassName="justify-start"
+    //   planelClassName="h-full w-full max-w-[300px] p-6 flex flex-col bg-white">
+    // </Modal>
+
+    <nav>
       <button
         onClick={onClose}
         aria-label="Close menu"
         className="mb-10 self-start cursor-pointer">
         <Close aria-hidden="true" />
       </button>
-      <nav>
+      <div className="">
         <ul className="flex flex-col gap-6 font-bold">
           {navLinks.map((link) => (
             <li key={link.label}>
@@ -28,8 +31,8 @@ function MobileNav({ isOpen, onClose }) {
             </li>
           ))}
         </ul>
-      </nav>
-    </Modal>
+      </div>
+    </nav>
   );
 }
 

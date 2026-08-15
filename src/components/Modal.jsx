@@ -1,4 +1,3 @@
-// src/components/Modal.jsx
 import { useEffect } from "react";
 import FocusLock from "react-focus-lock";
 import { RemoveScroll } from "react-remove-scroll";
@@ -32,7 +31,6 @@ function Modal({
     <FocusLock>
       <RemoveScroll>
         <div
-          // className="fixed inset-0 z-50 flex items-center justify-center bg-black/75"
           className={`fixed inset-0 z-50 flex bg-black/75 ${overlayClassName}`}
           onClick={onClose}>
           <div

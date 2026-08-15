@@ -10,6 +10,7 @@ import { FiShoppingCart as CartIcon } from "react-icons/fi";
 
 import CartPanel from "./CartPanel";
 import MobileNav from "./MobileNav";
+import MobileMenu from "./MobileMenu";
 
 function Header() {
   const { cartCount } = useCart();
@@ -38,8 +39,9 @@ function Header() {
     <header
       className="relative py-6 px-6 sm:mb-12 lg:mb-24 sm:px-0 sm:border-b border-brand-gray-300"
       onKeyDown={handleKeyDown}>
-      <div className="flex items-center">
+      <nav aria-label="Primary" className="flex items-center">
         <div className="flex gap-3 items-center justify-center">
+          {/* tablet and mobile - show the hamburger menu */}
           {!isDesktopNav && (
             <button
               ref={navButtonRef}
@@ -54,20 +56,22 @@ function Header() {
           <img src={logo} alt="Sneakers logo" className="" />
         </div>
 
+        {isNavOpen && (
+          <MobileMenu onClose={() => setIsNavOpen(false)} />
+        )}
+
         {isDesktopNav && (
-          <nav aria-label="Primary" className="ml-14">
-            <ul className="flex gap-8">
-              {navLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-brand-gray-500 hover:text-brand-gray-950">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <ul className="ml-14 flex gap-8">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="text-brand-gray-500 hover:text-brand-gray-950">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         )}
 
         <div className="ml-auto flex items-center gap-6">
@@ -94,7 +98,7 @@ function Header() {
             className="size-6 sm:size-12.5 object-cover rounded-full"
           />
         </div>
-      </div>
+      </nav>
 
       {isCartOpen && (
         <CartPanel
@@ -106,10 +110,10 @@ function Header() {
         />
       )}
 
-      <MobileNav
+      {/* <MobileNav
         isOpen={isNavOpen}
         onClose={() => setIsNavOpen(false)}
-      />
+      /> */}
     </header>
   );
 }
