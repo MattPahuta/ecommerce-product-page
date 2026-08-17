@@ -48,7 +48,7 @@ function ProductInfo() {
           {product.description}
         </p>
 
-        <div className="my-8 flex sm:flex-col items-center sm:items-start justify-between">
+        <div className="my-8 flex sm:flex-col sm:gap-2 items-center sm:items-start justify-between">
           <div className="flex gap-4">
             <span className="text-3xl font-bold">
               ${currentPrice.toFixed(2)}

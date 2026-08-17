@@ -7,9 +7,7 @@ import logo from "../assets/images/logo.svg";
 import menuIcon from "../assets/images/icon-menu.svg";
 import avatar from "../assets/images/image-avatar.png";
 import { FiShoppingCart as CartIcon } from "react-icons/fi";
-
 import CartPanel from "./CartPanel";
-import MobileNav from "./MobileNav";
 import MobileMenu from "./MobileMenu";
 
 function Header() {
@@ -66,9 +64,9 @@ function Header() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-brand-gray-500 hover:text-brand-gray-950">
+                  className="text-brand-gray-500 rounded-sm hover:text-brand-gray-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gray-950">
                   {link.label}
-                </a>
+                </a>  
               </li>
             ))}
           </ul>
@@ -110,10 +108,6 @@ function Header() {
         />
       )}
 
-      {/* <MobileNav
-        isOpen={isNavOpen}
-        onClose={() => setIsNavOpen(false)}
-      /> */}
     </header>
   );
 }

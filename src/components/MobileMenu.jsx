@@ -20,7 +20,9 @@ function MobileMenu({ onClose }) {
 
   return (
     <FocusLock>
-      <div className="fixed inset-0 z-50 flex bg-black/75">
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-50 flex bg-black/75">
         <div className="min-w-62.5 sm:min-w-75 p-6 sm:py-12 sm:px-20 bg-white">
           <button
             onClick={onClose}
