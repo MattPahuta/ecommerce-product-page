@@ -14,6 +14,11 @@ function LiveAnnouncer() {
 function App() {
   return (
     <CartProvider>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white">
+        Skip to main content
+      </a>
       <LiveAnnouncer />
       <div className="mx-auto max-w-277.5">
         <Header />

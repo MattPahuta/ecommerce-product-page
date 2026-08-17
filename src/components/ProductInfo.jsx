@@ -57,8 +57,9 @@ function ProductInfo() {
               {discountPercent}%
             </span>
           </div>
-          <p className="font-bold text-brand-gray-500 line-through">
-            ${product.fullPrice.toFixed(2)}
+          <p className="font-bold text-brand-gray-500">
+            <span className="sr-only">Original price: </span>
+            <s>${product.fullPrice.toFixed(2)}</s>
           </p>
         </div>
 

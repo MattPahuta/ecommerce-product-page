@@ -12,11 +12,6 @@ function ProductGallery() {
   const productImages = product.images;
   const activeImage = product.images[activeIndex];
 
-  // useEffect(() => {
-  //   if (!isDesktop) setIsLightboxOpen(false);
-  // }, [isDesktop]);
-
-  // show previous image in gallery, wrapping to the last image if currently at the firt
   function showPreviousImage() {
     setActiveIndex((currentIndex) =>
       currentIndex === 0
@@ -25,7 +20,6 @@ function ProductGallery() {
     );
   }
 
-  // show next image in gallery, wrapping to the first image if currently at the last
   function showNextImage() {
     setActiveIndex((currentIndex) =>
       currentIndex === productImages.length - 1

@@ -61,6 +61,15 @@ There are some gaps in the design comp in regard to interactive (focus, active) 
 
 This FEM challenge is largely focused on layout and achieving the lightbox interactivity, so the design comp has limited insight into much of the interactive styles for buttons and nothing to say about error states or specific shopping cart logic, so I decided to fall back on achieving the highest contrast ratio standards with the brand color combinations and detailed error text.
 
+After testing with a screen reader, I realized my original presentation of the crossed-out product price carried no meaning to an unsighted user. Going back, I added some visually hidden context as well as utilizing the more semanatic ```<s>``` tag:
+
+```html
+  <p className="font-bold text-brand-gray-500">
+    <span className="sr-only">Original price: </span>
+    <s>${product.fullPrice.toFixed(2)}</s>
+  </p>
+```
+
 ### The Shopping Cart drop-down
 
 Among the many accessibility challenges this project design presented is the open cart panel state. The design calls for the cart to overlay the product page content rather than shift content down, allowing for much of the product image along with its controls to be obsured (especially on mobile).

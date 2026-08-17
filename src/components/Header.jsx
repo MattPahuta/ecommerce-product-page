@@ -48,7 +48,11 @@ function Header() {
               aria-haspopup="true"
               aria-label="Open menu"
               className="size-10 inline-flex items-center justify-center rounded-md hover:bg-brand-gray-050 focus-visible:outline-2 focus-visible:outline-brand-orange-500 transition-colors cursor-pointer">
-              <img src={menuIcon} alt="" className="size-4" />
+              <img
+                src={menuIcon}
+                alt="Sneakers Company logo"
+                className="size-4"
+              />
             </button>
           )}
           <img src={logo} alt="Sneakers logo" className="" />
@@ -66,7 +70,7 @@ function Header() {
                   href={link.href}
                   className="text-brand-gray-500 rounded-sm hover:text-brand-gray-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gray-950">
                   {link.label}
-                </a>  
+                </a>
               </li>
             ))}
           </ul>
@@ -107,7 +111,6 @@ function Header() {
           }}
         />
       )}
-
     </header>
   );
 }
