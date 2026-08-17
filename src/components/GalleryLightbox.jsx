@@ -37,12 +37,10 @@ function GalleryLightbox({
         />
         <GalleryArrowButton
           direction="previous"
-          size="large"
           onClick={onPrevious}
         />
         <GalleryArrowButton
           direction="next"
-          size="large"
           onClick={onNext}
         />
       </div>
