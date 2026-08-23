@@ -70,6 +70,14 @@ After testing with a screen reader, I realized my original presentation of the c
   </p>
 ```
 
+
+```html
+  <p className="font-bold text-brand-gray-500">
+    <span className="sr-only">Original price: </span>
+    <s>${product.fullPrice.toFixed(2)}</s>
+  </p>
+```
+
 ### The Shopping Cart drop-down
 
 Among the many accessibility challenges this project design presented is the open cart panel state. The design calls for the cart to overlay the product page content rather than shift content down, allowing for much of the product image along with its controls to be obsured (especially on mobile).
