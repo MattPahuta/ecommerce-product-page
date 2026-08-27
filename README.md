@@ -70,12 +70,20 @@ After testing with a screen reader, I realized my original presentation of the c
   </p>
 ```
 
-
 ```html
-  <p className="font-bold text-brand-gray-500">
-    <span className="sr-only">Original price: </span>
-    <s>${product.fullPrice.toFixed(2)}</s>
-  </p>
+  <div aria-live="polite" aria-atomic="true" className="sr-only">
+    // message for screen readers
+  </div>
+  ```
+
+During accessibility review testing, I discovered that when an item is added to the cart and then another item in the same quanity is added, the annoucement message remained identical, React wasn't detecting any need to update state, so no DOM updates were being made, thus the screen reader (which is watching the DOM, not React's state setter). Added a setTimeout with useCallback to clear the live region first, then set the message a moment later, so the screen reader sees the DOM mutations.
+
+```js
+  const announe = useCallback((message) => {
+      clearTimeout(clearTimeoutRef.current);
+      setAnnouncement("");
+      clearTimeoutRef.current = setTimeout(() => setAnnouncement(message), 100);
+    }, []);
 ```
 
 ### The Shopping Cart drop-down
