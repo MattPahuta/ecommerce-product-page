@@ -7,7 +7,7 @@
 - [Overview](#overview)
   - [Features](#features)
   - [Links](#links)
-  - [Tech Stack](#tech-stack)
+  - [Built with](#built-with)
   - [Project Structure](#project-structure)
 - [Architecture & Key Decisions](#architecture--key-decisions)
   - [Component Design](#component-design)
@@ -18,7 +18,9 @@
 
 ## Overview
 
-This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+An interactive product page built with React and Tailwind CSS, including image gallery, lightbox, and shopping cart. 
+
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6) and required project in Frontend Mentor's Web Accessibility learning path. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ### Features
 
@@ -34,10 +36,47 @@ Users should be able to:
 ### Links
 
 - [live demo site]()
+- [Frontend Mentor solution page]()
 
-### Tech Stack
+### Built with
+
+- Semantic HTML5 markup
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Tailwind CSS
+- [Vite](https://vite.dev/) - Build tooling, including dev server and asset imports and optimization
+- [React](https://reactjs.org/) - JS library
+- [react-focus-lock](https://www.npmjs.com/package/react-focus-lock) - Focus trapping for modal dialogs
+- [react-remove-scroll](https://www.npmjs.com/package/react-remove-scroll) - Background scroll locking for modals
 
 ### Project Structure
+
+```
+src/
+├── App.jsx                     # Root: CartProvider, skip link, LiveAnnouncer, Header, ProductPage
+├── context/
+│   └── CartContext.jsx         # Cart state, shared across Header and ProductInfo
+├── hooks/
+│   ├── useMediaQuery.js        # Breakpoint detection for JS-level behavior (not just CSS)
+│   └──useOnClickOutside.js     # Dismiss non-modal disclosures (cart dropdown) on outside click
+├── data/
+│   ├── product-data.js         # Single source of truth: images, pricing, description
+│   └── nav-links.js            # Shared nav data for desktop and mobile nav
+└── components/
+    ├── Header.jsx                # Logo, desktop nav OR hamburger, cart button + dropdown
+    ├── MobileMenu.jsx            # Modal-based slide-out nav panel (mobile/tablet)
+    ├── ProductPage.jsx           # Two-column (desktop) / stacked (mobile) layout
+    ├── ProductGallery.jsx        # Main image, thumbnails (desktop), arrows (mobile/tablet)
+    ├── GalleryThumbnail.jsx      # Single thumbnail button
+    ├── GalleryArrowButton.jsx    # Prev/next control, mobile/tablet only
+    ├── GalleryLightbox.jsx       # Modal-based enlarged gallery, desktop only
+    ├── Modal.jsx                 # Reusable accessible dialog primitive (see below)
+    ├── ProductInfo.jsx           # Price, description, quantity, add-to-cart, error state
+    ├── QuantitySelector.jsx      # Increment/decrement, floor of 0, ceiling of 99
+    ├── CartPanel.jsx             # Non-modal (desktop/tablet) / modal (mobile) disclosure
+    └── CartItem.jsx              # Single cart row with remove action
+```
 
 ## Architecture & Key Decisions
 
