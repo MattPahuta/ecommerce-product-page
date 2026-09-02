@@ -1,6 +1,6 @@
 # E-Commerce Product Page
 
-![project screenshot]()
+![project screenshot](./src/assets/images/project-ss.jpg)
 
 ## Table of Contents
 
@@ -10,9 +10,7 @@
   - [Built with](#built-with)
   - [Project Structure](#project-structure)
 - [Architecture & Key Decisions](#architecture--key-decisions)
-  - [Component Design](#component-design)
   - [State Management](#state-management)
-  - [Utility Functions](#utility-functions)
   - [Accessibility](#accessibility)
 - [Author](#author)
 
@@ -35,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- [live demo site]()
+- [live demo site](https://jovial-dusk-f6c8c4.netlify.app)
 - [Frontend Mentor solution page]()
 
 ### Built with
@@ -54,53 +52,57 @@ Users should be able to:
 
 ```
 src/
-├── App.jsx                     # Root: CartProvider, skip link, LiveAnnouncer, Header, ProductPage
+├── App.jsx                       # Root: CartProvider, skip link, LiveAnnouncer, Header, ProductPage
 ├── context/
-│   └── CartContext.jsx         # Cart state, shared across Header and ProductInfo
+│   └── CartContext.jsx           # Cart state, shared across Header and ProductInfo
 ├── hooks/
-│   ├── useMediaQuery.js        # Breakpoint detection for JS-level behavior (not just CSS)
-│   └──useOnClickOutside.js     # Dismiss non-modal disclosures (cart dropdown) on outside click
+│   ├── useMediaQuery.js          # Breakpoint detection for JS-level behavior (not just CSS)
+│   └── useOnClickOutside.js      # Dismiss non-modal disclosures (cart dropdown) on outside click
 ├── data/
-│   ├── product-data.js         # Single source of truth: images, pricing, description
-│   └── nav-links.js            # Shared nav data for desktop and mobile nav
+│   ├── product-data.js           # Product data: images, pricing, description
+│   └── nav-links.js              # Shared nav data for desktop and mobile nav
 └── components/
-    ├── Header.jsx                # Logo, desktop nav OR hamburger, cart button + dropdown
-    ├── MobileMenu.jsx            # Modal-based slide-out nav panel (mobile/tablet)
-    ├── ProductPage.jsx           # Two-column (desktop) / stacked (mobile) layout
-    ├── ProductGallery.jsx        # Main image, thumbnails (desktop), arrows (mobile/tablet)
-    ├── GalleryThumbnail.jsx      # Single thumbnail button
-    ├── GalleryArrowButton.jsx    # Prev/next control, mobile/tablet only
+    ├── Header.jsx                # Logo, nav, cart button + dropdown
+    ├── MobileMenu.jsx            # Dedicated slide-out menu component (mobile/tablet)
+    ├── ProductPage.jsx           # Semantic landmark for gallery and info render
+    ├── ProductGallery.jsx        # Featured image, thumbnails (desktop), arrows (mobile/tablet)
+    ├── GalleryThumbnail.jsx      # Single gallery item thumbnail button
+    ├── GalleryArrowButton.jsx    # Prev/next control buttons, handling style changes
     ├── GalleryLightbox.jsx       # Modal-based enlarged gallery, desktop only
-    ├── Modal.jsx                 # Reusable accessible dialog primitive (see below)
+    ├── Modal.jsx                 # Reusable accessible dialog primitive
     ├── ProductInfo.jsx           # Price, description, quantity, add-to-cart, error state
     ├── QuantitySelector.jsx      # Increment/decrement, floor of 0, ceiling of 99
-    ├── CartPanel.jsx             # Non-modal (desktop/tablet) / modal (mobile) disclosure
+    ├── CartPanel.jsx             # Shopping cart panel with FocusLock
     └── CartItem.jsx              # Single cart row with remove action
 ```
 
 ## Architecture & Key Decisions
 
-I approched this build imagining the product page was an example of what would be hundreds or more on mid-sized ecommerce online store, so there are quite a few components making up
+This challenge is featured in Frontend Mentor's web accessibility learning path, so I took on an accessibility-focused mindset from the start. Throughout the dev process, I kept asking the question: how would someone using only a keyboard or with vision limitations experience the site? That guiding principle shaped my structural choices, use of semantic markup, and supplemental ARIA attributes. 
 
-Instead of the collection of provided icon assets, I decided to utilize an icon library (React Feather - one of favorites) to streamline some of the conditional rendering and update the style of the product page in an incremental fashion. I feel going with the icon library adds to the overall accessibility of the site as well, eliminating some of the awkwardness of rendering the raw SVG files...
+Additionally, I kept in mind that the project simulates a single product page on an e-commerce site that would likely have hundreds or thousands of products. Given that, I looked to break down the various components of the page into logical, reusable pieces.
 
-(FocusLock and RemoveScroll)
-
-### Component Design
-
-This layout challenges of this project were much trickier than I anticipated. I think I spent a good deal more time with CSS trial and error, struggling to get the right combinations of postion relative, absolute, etc. correct than I did with the React and pure JavaScript logic.
 
 ### State Management
 
-### Utility Functions
+Since the core app state is required in various sibling components, I created a purpose-built component, CartContext, and utilized React Context and various other hooks to deal with cartItems state, the add/remove items functions, and an announcement feature for screen readers to better understand the current cart state.
+
+Other pieces of state (isCartOpen, isNavOpen, gallery activeIndex, etc.) are kept at the lowest component level needed. Additionally, derived values are used for cart count, current price, and discount percentage to avoid multiple sources of truth or drifting values.
+
 
 ### Accessibility
 
-There are some gaps in the design comp in regard to interactive (focus, active) elements. In particular, there are not defined styles for keyboard focused elements. The daker of the brand orange colors felt like the most natural of the accent colors to use here while keeping consistency with the design comp, but that color against the primary white background has a contrast ratio of just a tic over 2.5:1, failing both WCAG AA and AAA standards. I experimented with some similar orange shades to increase the contrast ratio to a minimum of 3:1, but the focus state of a selected thumb with the similar accent orange-500 looked awkward. In the end, I chose the darkest of the brand grays, erring on the side of clear visual accessiblity.
-
-This FEM challenge is largely focused on layout and achieving the lightbox interactivity, so the design comp has limited insight into much of the interactive styles for buttons and nothing to say about error states or specific shopping cart logic, so I decided to fall back on achieving the highest contrast ratio standards with the brand color combinations and detailed error text.
+The design comp is detailed, but I found a few gaps in the guidance. For example, there are no specific examples of keyboard-focused states for several interactive elements. Looking to achieve a minimum of 3:1 color contrast ratio, I added heavier outlines using the darkest versions of the primary and neutral brand colors, as well as some instances of white outlines where we have elements against a darker background.
 
 After testing with a screen reader, I realized my original presentation of the crossed-out product price carried no meaning to an unsighted user. Going back, I added some visually hidden context as well as utilizing the more semanatic ```<s>``` tag:
+
+**Semantic HTML & Landmarks**
+
+* Utilized ```<button>``` elements for every interactive control (thumbnails, quantity select, cart, etc.)
+* Proper page landmark elements (header, nav, main, section)
+* A skip link to bring visitors to the ```<main>``` element
+* Used the ```<output>``` element for the live quantity value, which gets the implicit role="status"
+* Added the ```<s>``` tag for original price strike-through text, adding context for visually impaired users
 
 ```html
   <p className="font-bold text-brand-gray-500">
@@ -109,13 +111,32 @@ After testing with a screen reader, I realized my original presentation of the c
   </p>
 ```
 
+**Keyboard Navigation & Focus Management**
+
+* Modal for gallery lightbox with tab trapping and focus lock, via React libraries, and close on Escape
+* Focus-visible outlines used throughout for clear visual focus indicators
+* Handled breakpoint-crossing edge case: An open lightbox or mobile nav closes based on window resize
+
+**ARIA Patterns**
+* ```aria-expanded``` and ```aria-haspopup="dialog"``` for cart button and mobile hamburger button
+* ```aria-current``` for active gallery thumbnails, distinguishing between a current item is set vs. an item is toggled on semantically
+* ```aria-label``` paired with ```aria-hidden="true"``` for icon-only buttons
+* ```role="group"``` with a descriptive label wrapping related control clusters (thumbnail set, quantity selector)
+* ```role="dialog"``` with ```aria-modal``` for modal
+
+**Live Regions & Announcements**
+
+* A persistently-mounted LiveAnnouncer with ```aria-live="polite"``` for background status updates (cart items added/removed, cart becomes empty)
+* Announcements are force-reset to an empty string before being set, so two consecutive identical actions (e.g., adding a single item) are each announced (details below)
+* ```role="alert"``` for the add-to-cart validation error, mounted only when relevant 
+
 ```html
   <div aria-live="polite" aria-atomic="true" className="sr-only">
     // message for screen readers
   </div>
   ```
 
-During accessibility review testing, I discovered that when an item is added to the cart and then another item in the same quanity is added, the annoucement message remained identical, React wasn't detecting any need to update state, so no DOM updates were being made, thus the screen reader (which is watching the DOM, not React's state setter). Added a setTimeout with useCallback to clear the live region first, then set the message a moment later, so the screen reader sees the DOM mutations.
+During accessibility review testing, I discovered that when an item is added to the cart, and then another item in the same quantity is added, the announcement message remained identical; React wasn't detecting any need to update state, so no DOM updates were made, thus the screen reader wouldn't note the change. Added a setTimeout with useCallback to clear the live region first, then set the message a moment later, so the screen reader sees the DOM mutations.
 
 ```js
   const announe = useCallback((message) => {
